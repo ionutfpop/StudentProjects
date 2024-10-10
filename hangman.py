@@ -2,9 +2,9 @@ import csv
 from collections import Counter
 
 
-# Functie pentru citirea cuvintelor din fișierul csv
-# Am utilizat codificare UTF-8 deoarece folosește pentru codificarea caracterelor un octet (caracterele ASCII) până la 4 octeți.
-# Diacriticele românești sunt codificate în UTF-8 pe 2 sau 3 octeți.
+# Functie pentru citirea cuvintelor din fisierul csv
+# Am utilizat codificare UTF-8 deoarece foloseste pentru codificarea caracterelor un octet (caracterele ASCII) pana la 4 octeti.
+# Diacriticele romanesti sunt codificate in UTF-8 pe 2 sau 3 octeti.
 def citeste_fisier(doccsv):
     pereche_cuvinte = []
     with open(doccsv, newline='', encoding='utf-8') as fisiercsv:
@@ -19,12 +19,12 @@ def citeste_fisier(doccsv):
 def frecventa_litere(cuvinte):
     contor_litere = Counter()
     for cuvant in cuvinte:
-        litere_unice = set(cuvant)  # Calculăm frecvența literelor unice din fiecare cuvânt
+        litere_unice = set(cuvant)  # Calculam frecventa literelor unice din fiecare cuvant
         contor_litere.update(litere_unice)
     return contor_litere
 
 
-# Functie care ghicește automat literele si returneaza numarul de incercari
+# Functie care ghiceste automat literele si returneaza numarul de incercari
 def joc_automat_hangman(cuvant_partial, cuvant_complet, max_greseli=7):
     gresit = 0
     utilizate = []
@@ -32,7 +32,7 @@ def joc_automat_hangman(cuvant_partial, cuvant_complet, max_greseli=7):
     incercari = 0
 
     while gresit < max_greseli and ''.join(ghicit_partial) != cuvant_complet:
-        # Calculeaza frecventa literelor din cuvantul complet care nu au fost incă ghicite
+        # Calculeaza frecventa literelor din cuvantul complet care nu au fost inca ghicite
         litere_ramase = [l for l in cuvant_complet if l not in utilizate]
         if not litere_ramase:
             break
